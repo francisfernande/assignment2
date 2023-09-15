@@ -1,0 +1,87 @@
+1. Why are functions advantageous to have in your programs?
+
+A1. > we can resuse the code 
+    > saves time as less logical thinking is required
+    > less error in code
+    > fast development 
+
+
+2. When does the code in a function run: when it's specified or when it's called?
+
+A2. When it's called.
+
+
+
+3. What statement creates a function?
+A3. when "def" keyword is used.
+
+
+
+4. What is the difference between a function and a function call?
+
+A4. function: is a block of code that performs a specific task.
+    f() call: is an expression that invokes a f() and excutes the code in the f()
+
+
+
+5. How many global scopes are there in a Python program? How many local scopes?
+
+A5.  There is only one global scope(contains var and f()) and multiple local    scopes.
+
+
+6. What happens to variables in a local scope when the function call returns?
+
+A6. when the excution of the f() terminates(returns), the local variable are destroyed.
+
+
+7. What is the concept of a return value? Is it possible to have a return value in an expression?
+
+A7. A return value is a value that a function can provide as output when it finishes executing. It allows a function to communicate a result or data back to the caller. Yes, it is possible to have a return value in an expression. You can use the return value of a function in expressions or assign it to a variable for further use
+
+
+
+8. If a function does not have a return statement, what is the return value of a call to that function?
+
+A8.  if you call a function that lacks a return statement or returns explicitly None, the return value of that function call will be None.
+
+
+9. How do you make a function variable refer to the global variable?
+
+A9.To make a function variable refer to a global variable, you can use the global keyword within the function. 
+eg.
+global_var = 10
+
+def my_function():
+    global global_var
+    print(global_var)  # Accessing the global variable
+
+my_function()
+
+
+10. What is the data type of None?
+
+A10. The data type of None is NoneType
+
+
+
+11. What does the sentence import areallyourpetsnamederic do?
+
+A11.  If such a module exists and is accessible in the current Python environment, it will be imported and its contents (variables, functions, classes, etc.) can be used in your program.
+
+
+12. If you had a bacon() feature in a spam module, what would you call it after importing spam?
+
+A12. import spam
+    spam.bacon()
+
+
+
+13. What can you do to save a programme from crashing if it encounters an error?
+
+A13. To prevent a program from crashing when it encounters an error, you can use error handling techniques. In Python, you can use a try and except block to catch and handle exceptions. 
+
+
+14. What is the purpose of the try clause? What is the purpose of the except clause?
+
+A14. the try clause is used to enclose code that might raise exceptions or errors. It allows you to monitor for errors without crashing the program.
+The except clause is used to specify how to handle specific exceptions that may occur within the try block. When an exception of the specified type is raised, the code within the corresponding except block is executed, allowing you to gracefully handle errors and continue program execution.
