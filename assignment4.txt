@@ -1,0 +1,93 @@
+1. What exactly is []?
+
+A1. it represents an empty list. It is also a list data structure with no elements.
+
+
+2. In a list of values stored in a variable called spam, how would you assign 
+the value 'hello' as the third value? (Assume [2, 4, 6, 8, 10] are in spam.)
+A2. spam[2] = 'hello'
+
+
+Let's pretend the spam includes the list ['a', 'b', 'c', 'd'] for the next three queries.
+
+3. What is the value of spam[int(int('3' * 2) / 11)]?
+
+A3. it will be d (3rd element)
+
+
+4. What is the value of spam[-1]?
+
+A4. d
+
+
+5. What is the value of spam[:2]?
+
+A5. ['a','b']
+
+Let's pretend bacon has the list [3.14, 'cat,' 11, 'cat,' True] for the next three questions.
+
+
+6. What is the value of bacon.index('cat')?
+
+A6.  1
+
+
+7. How does bacon.append(99) change the look of the list value in bacon?
+
+A7. [3.14, 'cat,' 11, 'cat,' True, 99]
+
+
+8. How does bacon.remove('cat') change the look of the list in bacon?
+
+A8. [3.14, 'cat,' 11, True]
+
+
+9. What are the list concatenation and list replication operators?
+
+A9. List concatenation in Python is done using the + operator. List replication is performed using the * operator.
+
+
+10. What is difference between the list methods append() and insert()?
+
+A10. The append() method is used to add an element to the end of a list, while the insert() method is used to insert an element at a specific index within the list.
+
+
+11. What are the two methods for removing items from a list?
+
+A11. The two methods for removing items from a list are:
+
+remove(item): Removes the first occurrence of the specified item from the list.
+pop(index): Removes and returns the item at the specified index in the list.
+
+
+12. Describe how list values and string values are identical.
+
+A12.List values and string values are similar in that they are both sequences of items, and you can access their individual elements by index. 
+
+
+13. What's the difference between tuples and lists?
+
+A13. The main difference between tuples and lists in Python is that lists are mutable (can be modified), while tuples are immutable (cannot be modified). Lists are defined using square brackets [], and tuples are defined using parentheses ().
+
+
+14. How do you type a tuple value that only contains the integer 42?
+
+A14. my_tuple = (42,)
+
+
+15. How do you get a list value's tuple form? How do you get a tuple value's list form?
+
+A15. my_list = [1, 2, 3]
+     my_tuple = tuple(my_list)
+
+    my_tuple = (4, 5, 6)
+    my_list = list(my_tuple)
+
+16. Variables that "contain" list values are not necessarily lists themselves. Instead, what do they contain?
+
+A16. Variables that "contain" list values in Python actually contain references to the list objects. They don't store the list data directly but rather point to the location in memory where the list is stored.
+
+
+17. How do you distinguish between copy.copy() and copy.deepcopy()?
+
+A17. copy.copy() performs a shallow copy of an object, which means it creates a new object but does not recursively copy the objects within it. In contrast, copy.deepcopy() performs a deep copy, creating a completely independent copy of the object and all objects nested within it, recursively.
