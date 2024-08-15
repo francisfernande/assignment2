@@ -1,0 +1,119 @@
+1. What is a lambda function in Python, and how does it differ from a regular function?
+A1.A lambda function in Python is a small, anonymous function defined using the lambda keyword. It can take any number of arguments but only has one expression
+    Summary of Differences Between Lambda Functions and Regular Functions:
+
+- **Syntax:**
+  - Lambda functions: Defined in a single line using the `lambda` keyword.
+  - Regular functions: Defined using the `def` keyword and can span multiple lines.
+
+- **Anonymous:**
+  - Lambda functions: Do not have a name.
+  - Regular functions: Have a name.
+
+- **Single Expression:**
+  - Lambda functions: Limited to a single expression.
+  - Regular functions: Can contain multiple expressions and statements.
+
+
+2. Can a lambda function in Python have multiple arguments? If yes, how can you define and use
+them?
+A2. Yes, a lambda function in Python can have multiple arguments.
+    The arguments are listed before the colon, and the expression that uses these arguments follows the colon.
+
+    add = lambda x, y: x + y
+    print(add(5, 3))  # Output: 8
+
+
+3. How are lambda functions typically used in Python? Provide an example use case.
+A3. Lambda functions are typically used in situations where a simple function is required temporarily,
+    often as an argument to higher-order functions like map(), filter(), or sorted().
+
+    # Using lambda with map to square all elements in a list
+    numbers = [1, 2, 3, 4, 5]
+    squared = list(map(lambda x: x ** 2, numbers))
+    print(squared)  # Output: [1, 4, 9, 16, 25]
+
+
+4. What are the advantages and limitations of lambda functions compared to regular functions in
+Python?
+A4. Advantages:
+
+    Concise Syntax: Lambda functions are concise and can be defined in a single line.
+    Anonymous: They don't require a name, making them ideal for short-term use.
+    Inline Use: They are often used in places where a full function definition would be overkill, such as in functional programming constructs.
+
+    Limitations:
+
+    Single Expression: Lambda functions are limited to a single expression and cannot contain multiple statements or complex logic.
+    Readability: They can make code harder to read if overused, especially for complex operations.
+    Debugging: Since lambda functions are anonymous and often used inline, they can be harder to debug.
+
+5. Are lambda functions in Python able to access variables defined outside of their own scope?
+Explain with an example.
+A5. Yes, lambda functions in Python can access variables defined outside of their own scope. This is due to the concept of closures,
+    where a lambda function "remembers" the environment in which it was created.
+
+    def multiplier(n):
+    return lambda x: x * n
+
+    times_two = multiplier(2)
+    print(times_two(5))  # Output: 10
+
+
+6. Write a lambda function to calculate the square of a given number.
+A6. square = lambda x: x ** 2
+    print(square(4))  # Output: 16
+
+
+7. Create a lambda function to find the maximum value in a list of integers.
+A7 print((lambda lst: max(lst))([1, 5, 3, 9, 2]))
+
+8. Implement a lambda function to filter out all the even numbers from a list of integers.
+A8. numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+    evens = list(filter(lambda x: x % 2 == 0, numbers))
+    print(evens)  # Output: [2, 4, 6, 8]
+
+
+9. Write a lambda function to sort a list of strings in ascending order based on the length of each
+string.
+A9. strings = ["apple", "kiwi", "banana", "cherry"]
+    sorted_strings = sorted(strings, key=lambda s: len(s))
+    print(sorted_strings)  # Output: ['kiwi', 'apple', 'cherry', 'banana']
+
+10. Create a lambda function that takes two lists as input and returns a new list containing the
+common elements between the two lists.
+A10. common_elements = lambda lst1, lst2: list(filter(lambda x: x in lst1, lst2))
+    print(common_elements([1, 2, 3, 4], [3, 4, 5, 6]))  # Output: [3, 4]
+
+11. Write a recursive function to calculate the factorial of a given positive integer.
+A11. def factorial(n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * factorial(n - 1)
+
+    print(factorial(5))  # Output: 120
+
+
+12. Implement a recursive function to compute the nth Fibonacci number.
+A12. fibonacci = (lambda f: lambda n: f(f, n))(
+    lambda f, n: n if n <= 1 else f(f, n - 1) + f(f, n - 2))
+    print(fibonacci(6))  # Output: 8
+
+13. Create a recursive function to find the sum of all the elements in a given list.
+A13. sum_list = (lambda f: lambda lst: 0 if not lst else lst[0] + f(f, lst[1:]))(
+     lambda f, lst: 0 if not lst else lst[0] + f(f, lst[1:]))
+     print(sum_list([1, 2, 3, 4]))  # Output: 10
+
+
+14. Write a recursive function to determine whether a given string is a palindrome.
+A14. is_palindrome = (lambda f: lambda s: True if len(s) <= 1 else s[0] == s[-1] and f(f, s[1:-1]))(
+    lambda f, s: True if len(s) <= 1 else s[0] == s[-1] and f(f, s[1:-1]))
+    print(is_palindrome("radar"))  # Output: True
+    print(is_palindrome("hello"))  # Output: False
+
+
+15. Implement a recursive function to find the greatest common divisor (GCD) of two positive integers.
+A15.gcd = (lambda f: lambda a, b: a if b == 0 else f(f, b, a % b))(
+    lambda f, a, b: a if b == 0 else f(f, b, a % b))
+    print(gcd(48, 18))  # Output: 6
