@@ -1,0 +1,117 @@
+1. What is the role of try and exception block?
+A1.The try and except block in Python is used for handling exceptions (errors) that occur during the execution of a program.
+The code inside the try block is executed first. If an error (exception) occurs, the remaining code in the try block is skipped, and
+the control is transferred to the except block, where you can handle the error appropriately.
+
+2. What is the syntax for a basic try-except block?
+A2.try:
+        # Code that may raise an exception
+        pass
+    except SomeExceptionType:
+        # Code that runs if an exception occurs
+        pass
+
+3. What happens if an exception occurs inside a try block and there is no matching
+except block?
+A3. If an exception occurs inside a try block and there is no matching except block,
+the program will terminate and the exception will propagate up the call stack. If uncaught, it will result in a program crash and display a traceback of the error.
+
+4. What is the difference between using a bare except block and specifying a specific exception type?
+A4. are except block: Catches all exceptions, regardless of their type. This can make debugging difficult
+    because it may catch unexpected exceptions that should be handled differently.
+
+5. Can you have nested try-except blocks in Python? If yes, then give an example.
+A5. Yes, you can have nested try-except blocks in Python. Here's an example:
+    try:
+        try:
+            # Outer try block
+            print("Outer try block")
+            x = 1 / 0
+        except ZeroDivisionError:
+            print("Caught ZeroDivisionError in outer try block")
+            # Inner try-except block
+            try:
+                y = int('a')
+            except ValueError:
+                print("Caught ValueError in inner try block")
+    except:
+        print("Caught an exception")
+
+
+6. Can we use multiple exception blocks, if yes then give an example.
+A6.
+try:
+    x = int(input("Enter a number: "))
+    y = 1 / x
+except ValueError:
+    print("Invalid input! Please enter a valid number.")
+except ZeroDivisionError:
+    print("Division by zero is not allowed.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+
+7. Write the reason due to which following errors are raised:
+a. EOFError - Raised when the input() function hits an end-of-file condition (no more input) unexpectedly.
+
+b. FloatingPointError - Raised when a floating-point operation fails. This is rare and typically occurs with floating-point exceptions in low-level code or special libraries.
+
+c. IndexError - Raised when trying to access an element at an invalid index in a sequence (like a list or a tuple).
+
+d. MemoryError -Raised when an operation runs out of memory and cannot allocate the required amount.
+
+e. OverflowError - Raised when the result of an arithmetic operation is too large to be expressed within the range of the numeric type
+
+f. TabError - Raised when inconsistent use of tabs and spaces is found in indentation.
+
+g. ValueError: Raised when a function receives an argument of the correct type but an inappropriate value (e.g., passing a string to int() that cannot be converted to an integer).
+
+8. Write code for the following given scenario and add try-exception block to it.
+a. Program to divide two numbers
+
+try:
+    x = int(input("Enter the numerator: "))
+    y = int(input("Enter the denominator: "))
+    result = x / y
+    print(f"The result is {result}")
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+except ValueError:
+    print("Error: Please enter valid integers.")
+
+
+b. Program to convert a string to an integer
+try:
+    s = input("Enter a string to convert to an integer: ")
+    num = int(s)
+    print(f"The converted integer is {num}")
+except ValueError:
+    print("Error: The input string cannot be converted to an integer.")
+
+
+
+c. Program to access an element in a list
+try:
+    lst = [1, 2, 3, 4, 5]
+    index = int(input("Enter the index you want to access: "))
+    print(f"Element at index {index}: {lst[index]}")
+except IndexError:
+    print("Error: Index out of range.")
+except ValueError:
+    print("Error: Please enter a valid integer.")
+
+
+d. Program to handle a specific exception
+try:
+    x = int(input("Enter a number: "))
+    y = 1 / x
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+
+e. Program to handle any exception
+try:
+    x = int(input("Enter a number: "))
+    y = 1 / x
+except Exception as e:
+    print(f"An error occurred: {e}")
