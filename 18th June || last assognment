@@ -1,0 +1,217 @@
+1. What is the role of the 'else' block in a try-except statement? Provide an example
+scenario where it would be useful.
+A1. The else block in a try-except statement is executed only if the try block does not raise any exceptions
+
+try:
+    num = int(input("enter a num "))
+    result = 10/num
+except Exception as e:
+    print(e)
+else:
+    print(f"the result is {result}")
+
+2. Can a try-except block be nested inside another try-except block? Explain with an
+example.
+A2.try:
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    try:
+        result = num1 / num2
+    except ZeroDivisionError:
+        print("Error: Cannot divide by zero.")
+    else:
+        print(f"The result of division is {result}")
+
+  except ValueError:
+    print("Error: Please enter a valid integer.")
+
+
+3. How can you create a custom exception class in Python? Provide an example that
+demonstrates its usage.
+A3.
+class NegativeError(Exception):
+    def __init__(self,value):
+        self.value=value
+        super().__init__(f"negative : {value})
+def check_positive(number):
+    if number<0:
+        raise NegativeError(number)
+    return f"{number} is a positive number."
+
+try:
+    num = int(input("Enter a number: "))
+    print(check_positive(num))
+except NegativeNumberError as e:
+    print(e)
+
+4. What are some common exceptions that are built-in to Python?
+A4. ValueError: Raised when a function receives an argument of the right type but an inappropriate value. Example: trying to convert a non-numeric string to an integer.
+
+ZeroDivisionError: Raised when attempting to divide by zero.
+
+TypeError: Raised when an operation or function is applied to an object of inappropriate type. Example: trying to add a string and an integer.
+
+IndexError: Raised when trying to access an index that is out of range in a list or other sequence types.
+
+KeyError: Raised when trying to access a key that doesn’t exist in a dictionary.
+
+AttributeError: Raised when an attribute reference or assignment fails. Example: trying to access an attribute that doesn’t exist on an object.
+
+FileNotFoundError: Raised when trying to open a file that does not exist.
+
+ImportError: Raised when an import statement fails to find the module definition or when a from statement fails to find a name that is to be imported.
+
+NameError: Raised when trying to access a variable or function that hasn’t been defined.
+
+RuntimeError: Raised when an error occurs that doesn’t fall under any other category.
+
+
+5. What is logging in Python, and why is it important in software development?
+A5.Logging in Python is the process of recording messages, events, or data during the execution of a program. It provides a way to track what happens when your code runs, which is crucial for debugging, monitoring, and maintaining software.
+
+Importance of Logging in Software Development:
+Debugging and Troubleshooting:
+
+Logs help developers identify what went wrong and where the problem occurred by providing a detailed history of program execution. This is particularly useful for diagnosing issues that are difficult to reproduce.
+Monitoring and Maintenance:
+
+Logging allows developers and system administrators to monitor the behavior of applications in real-time. It can track performance, detect unusual activities, or catch errors before they become critical.
+Audit and Compliance:
+
+Logs can serve as an audit trail, showing what actions were taken in an application. This is important for security, compliance, and regulatory requirements, especially in industries like finance or healthcare.
+Understanding Application Flow:
+
+Logging provides insights into how data flows through your application. It can be used to track the progression of a request or to ensure that certain critical parts of the code are executed.
+Error Tracking:
+
+When exceptions occur, logging can capture detailed information about the error, including stack traces, without disrupting the normal flow of the application (unlike print statements, which can clutter the output).
+
+6. Explain the purpose of log levels in Python logging and provide examples of when each log level would be appropriate.
+A6.Log levels in Python logging are used to categorize the severity or importance of log messages. Each log level represents a
+different level of importance, and they help developers filter and prioritize the information that is logged.
+DEBUG: Detailed information for diagnosing issues.
+INFO: General operational information.
+WARNING: Alerts about potential issues or unexpected situations.
+ERROR: Problems that occurred, but the application can still run.
+CRITICAL: Severe problems requiring immediate attention, possibly leading to application failure.
+
+7. What are log formatters in Python logging, and how can you customise the log
+message format using formatters?
+A7.Log formatters in Python's logging module are used to define the structure and content of log messages. They allow you to
+customize how log messages are presented by specifying the format for attributes such as timestamp, log level, message content, and more.
+To customize log messages, you can define a format string using format specifiers that correspond to different parts of the log record.
+This format string is then passed to a Formatter object, which is applied to a logging handler.
+
+Common Format Specifiers
+%(asctime)s: The timestamp when the log record was created.
+%(levelname)s: The log level (DEBUG, INFO, etc.).
+%(message)s: The log message.
+%(name)s: The name of the logger.
+%(filename)s: The name of the file where the log call was made.
+%(lineno)d: The line number in the source code where the log call was made.
+%(threadName)s: The name of the thread that generated the log record.
+
+8. How can you set up logging to capture log messages from multiple modules or classes in a Python application?
+A8. capture log messages from multiple modules or classes in a Python application, you need to set up a logging
+configuration that can be shared across all the modules. This involves creating a common logger that all modules or classes can use, or configuring the logging system in a way that allows multiple loggers to work together.
+
+Steps to Set Up Logging Across Multiple Modules:
+Configure Logging in a Central Location:
+
+Typically, you would set up logging in a main script or a dedicated logging configuration file. This configuration will
+be used across the entire application.
+Create a Logger in Each Module:
+
+In each module or class, create a logger using logging.getLogger(__name__). The __name__ variable will allow the logger to
+be named according to the module's name, making it easier to identify where each log message originated.
+Set Up Handlers and Formatters:
+
+You can configure handlers (like StreamHandler or FileHandler) and formatters in the central configuration. These can be
+attached to loggers to determine where the log messages should be sent (e.g., to a file, to the console) and how they should be formatted.
+Control Log Levels:
+
+9. What is the difference between the logging and print statements in Python? When should you use logging over print statements in a real-world application?
+A9. ifferences Between logging and print:
+Purpose:
+
+print: For temporary output and simple debugging.
+logging: For tracking and recording events with various levels of severity.
+Output Control:
+
+print: Outputs only to the console.
+logging: Can output to multiple destinations (files, console) and is highly configurable.
+Severity Levels:
+
+print: No severity levels.
+logging: Supports levels like DEBUG, INFO, ERROR.
+Formatting:
+
+print: Requires manual formatting.
+logging: Supports customizable formats and includes timestamps.
+Configurability:
+
+print: Fixed output.
+logging: Highly configurable with handlers, levels, and formats.
+Persistence:
+
+print: Output is transient.
+logging: Can be saved to files or external systems for long-term analysis.
+
+When to Use logging Over print:
+Production: Use logging for persistent, configurable, and severity-based tracking.
+Development: print is okay for quick checks but should be replaced with logging for ongoing projects.
+
+10. Write a Python program that logs a message to a file named "app.log" with the following requirements:
+● The log message should be "Hello, World!"
+● The log level should be set to "INFO."
+● The log file should append new log entries without overwriting previous ones.
+
+A10. import logging
+
+# Configure logging
+logging.basicConfig(
+    filename='app.log',          # Log file name
+    level=logging.INFO,          # Log level
+    format='%(asctime)s - %(levelname)s - %(message)s',  # Log format
+    filemode='a'                 # Append mode
+)
+
+# Log a message
+logging.info("Hello, World!")
+
+11. Create a Python program that logs an error message to the console and a file named "errors.log" if an exception occurs during the program's execution. The error
+message should include the exception type and a timestamp.
+
+A11.import logging
+
+# Configure logging for both console and file
+logger = logging.getLogger()
+logger.setLevel(logging.ERROR)
+
+# Create a file handler for logging errors to 'errors.log'
+file_handler = logging.FileHandler('errors.log')
+file_handler.setLevel(logging.ERROR)
+
+# Create a console handler for logging errors to the console
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.ERROR)
+
+# Define the log format
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+# Example function that raises an exception
+def divide(x, y):
+    return x / y
+
+# Main code block
+try:
+    result = divide(10, 0)  # This will raise a ZeroDivisionError
+except Exception as e:
+    logger.error("An exception occurred: %s", e)
